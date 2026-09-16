@@ -1,9 +1,12 @@
 * {
-  margin: 0; /*обнулили внутренние отступы*/
-  padding: 0; /*обнулили внешние отступы*/
+  margin: 0;
+  padding: 0;
 }
 
-/*подключили шрифты*/
+/* =========================
+   FONTS
+========================= */
+
 @font-face {
   font-family: "Steppe-Book";
   src: url("../fonts/Steppe-Book.ttf");
@@ -14,8 +17,10 @@
   src: url("../fonts/Steppe-ExtraBold.ttf");
 }
 
-/*sans-serif - указывается на случай, если шрифт будет не доступен,
-тогда система сама подберет альтернативу*/
+/* =========================
+   GENERAL
+========================= */
+
 body {
   background-color: #5243f4;
   font-family: "Steppe-Book", sans-serif;
@@ -23,8 +28,8 @@ body {
 }
 
 .container {
-  max-width: 1200px; /*ширина страницы*/
-  margin: 0 auto; /*выравнивание по центру*/
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .button {
@@ -32,13 +37,13 @@ body {
   border-radius: 60px;
   width: 178px;
   height: 58px;
-  box-sizing: border-box; /*задать внутренние размеры*/
+  box-sizing: border-box;
   padding: 18px;
-  text-align: center; /*разместить запись по центру*/
+  text-align: center;
   font-size: 18px;
   color: #5243f4;
   border: 0;
-  outline: none; /*чтобы не появлялся фокус от браузера*/
+  outline: none;
   cursor: pointer;
 }
 
@@ -67,6 +72,10 @@ body {
   overflow: hidden;
 }
 
+/* =========================
+   CURRENCY
+========================= */
+
 .currency {
   position: fixed;
   right: 50px;
@@ -90,60 +99,68 @@ body {
     transform: scale(0.9);
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
   }
+
   70% {
     transform: scale(1);
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
   }
+
   100% {
     transform: scale(0.9);
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .header {
-  padding: 40px 0; /*отступ по краям по 40, сверху и снизу - 0*/
+  padding: 40px 0;
 }
 
-/*будет применяться к контейнеру который находится в header*/
 .header .container {
-  display: flex; /*отображение в одну строку*/
-  align-items: center; /*выравнивание по вертикали по центру*/
+  display: flex;
+  align-items: center;
 }
 
-.logo .img {
-  vertical-align: bottom; /*картинка правильно отображается и располагается ровно по центру блока*/
+.logo img {
+  vertical-align: bottom;
 }
 
 .menu {
-  margin-left: 250px; /*отступ слева*/
+  margin-left: 250px;
 }
 
 .menu-list {
-  list-style: none; /*убрать точки возле цифр*/
-  display: flex; /*выравнивание в строку в гибком контейрнере*/
-  gap: 50px; /*отступ между пунктами меню*/
+  list-style: none;
+  display: flex;
+  gap: 50px;
 }
 
 .menu-item a {
-  font-size: 16px; /*размер шрифта*/
-  line-height: 130%; /*высота строки*/
-  text-decoration: none; /*убрать подчеркивание у ссылок*/
-  cursor: pointer; /*при наведении кликающая рука*/
+  font-size: 16px;
+  line-height: 130%;
+  text-decoration: none;
+  cursor: pointer;
   color: white;
 }
 
-/*прописываем какие стили будут применяться при наведении*/
 .menu-item a:hover {
-  border-bottom: 2px solid white; /*белая полоска снизу при наведении*/
+  border-bottom: 2px solid white;
 }
 
+/* =========================
+   HERO
+========================= */
+
 .main-content {
-  padding-top: 161px; /*отступ сверху*/
-  padding-bottom: 200px; /*отступ снизу*/
+  padding-top: 161px;
+  padding-bottom: 200px;
 }
 
 .main-info {
-  max-width: 811px; /*максимальная ширина, после которой будет перенос*/
+  max-width: 811px;
 }
 
 .main-title {
@@ -161,32 +178,31 @@ body {
 }
 
 .main-image {
-  position: absolute; /*указываем позиционирование, чтобы вырвать его из сетки и сделать висящим*/
-  top: 0; /*отступ сверху 0*/
-  right: 0; /*отступ справа 0, чтобы привязался к правому краю*/
-  z-index: -1; /*перемещаем на задний план*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
 }
 
-/*После этой строки добавьте код из 2-ой части бонуса*/
+/* =========================
+   PRODUCTS
+========================= */
 
 .products {
-  padding: 100px 0; /*0 это отступ справа и слева*/
+  padding: 100px 0;
   position: relative;
 }
 
 .products-items {
-  display: grid; /* сетка из 6 элементов для карточек товара*/
-  grid-template-columns: repeat(
-    3,
-    384px
-  ); /* используем 3 колонки по 384px каждую*/
-  gap: 90px 24px; /*90 отступ сверху и снизу, 24 - слева и справа*/
+  display: grid;
+  grid-template-columns: repeat(3, 384px);
+  gap: 90px 24px;
   margin-top: 110px;
 }
 
 .product-item {
   background-color: white;
-  color: #5d3427; /* цвет текста */
+  color: #5d3427;
 }
 
 .product-item-image {
@@ -196,13 +212,13 @@ body {
 
 .product-item-image img {
   height: 272px;
-  top: -70px; /* поднимаем картинку вверх на 70 px */
-  position: relative; /* чтобы работал выше указанный код */
-  max-width: 100%; /* макс ширина для картинки */
+  top: -70px;
+  position: relative;
+  max-width: 100%;
 }
 
 .products-item-details {
-  padding: 24px; /* внутренний отступ */
+  padding: 24px;
 }
 
 .products-item-title {
@@ -219,9 +235,9 @@ body {
 }
 
 .products-item-extra {
-  display: flex; /* делаем гибкий контейнер, чтобы текст и кнопка были в одной строке */
-  justify-content: space-between; /* чтобы элементы привязались к разным сторонам и между ними был какой то отступ */
-  align-items: center; /* выровнять по вертикали */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .products-item-price {
@@ -235,10 +251,12 @@ body {
   font-size: 12px;
 }
 
-/*После этой строки добавьте код из 3-ей части бонуса*/
+/* =========================
+   LOVE
+========================= */
 
 .love {
-  padding: 64px 0 150px 0; /* внутренний отступ (сверху справа снизу слева) */
+  padding: 64px 0 150px 0;
 }
 
 .love-items {
@@ -255,7 +273,7 @@ body {
 .love-item-white {
   background-color: white;
   padding: 110px 80px;
-  box-sizing: border-box; /* чтобы размеры включали отступы padding */
+  box-sizing: border-box;
   color: #5d3427;
 }
 
@@ -270,6 +288,10 @@ body {
   font-size: 18px;
   line-height: 130%;
 }
+
+/* =========================
+   TABLET / LOVE
+========================= */
 
 @media (max-width: 1000px) {
   .love-items {
@@ -309,33 +331,9 @@ body {
   }
 }
 
-@media (max-width: 600px) {
-  .love-items {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .love-item {
-    width: 100%;
-    min-height: 0;
-    height: auto;
-  }
-
-  .love-item-white {
-    width: 100%;
-    padding: 40px 28px;
-  }
-
-  .love-item-image {
-    width: 100%;
-  }
-
-  .love-item-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-}
+/* =========================
+   ORDER
+========================= */
 
 .order {
   padding-bottom: 102px;
@@ -348,14 +346,14 @@ body {
 
 .order-block {
   margin-top: 103px;
-  background-color: rgb(255 255 255 / 30%); /* делаем прозрачный фон */
+  background-color: rgb(255 255 255 / 30%);
   backdrop-filter: blur(50px);
   display: flex;
 }
 
 .order-form {
   margin-left: 200px;
-  max-width: 387px; /* задаем максимальную ширину, чтобы блок не растягивался */
+  max-width: 387px;
   padding: 40px 0 44px 0;
   box-sizing: border-box;
 }
@@ -380,14 +378,14 @@ body {
   font-size: 18px;
   width: 385px;
   height: 68px;
-  background: transparent; /* прозрачный фон */
+  background: transparent;
   box-sizing: border-box;
-  outline: none; /* чтобы браузер не добавлял подсветку, когда мы работаем с полем */
+  outline: none;
   color: white;
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, 0.4); /* указали непрозрачность */
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .order-form-inputs .button.violet-button {
@@ -413,7 +411,9 @@ body {
   z-index: -1;
 }
 
-/*После этой строки добавьте код из 4-ой части бонуса*/
+/* =========================
+   FOOTER
+========================= */
 
 .footer {
   padding: 126px 0 50px 0;
@@ -426,32 +426,25 @@ body {
   line-height: 130%;
 }
 
-/*!!! эти строки НЕ ТРОГАТЬ, они всегда должны быть самыми последними*/
-.line1 {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: calc(100% - 960px);
-}
-
-.line2 {
-  position: absolute;
-  z-index: -1;
-  top: -40px;
-  left: 0;
-}
-
-.line3 {
-  position: absolute;
-  z-index: -1;
-  top: -920px;
-  left: 0;
-}
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
+
+  /* GENERAL */
+
   .container {
     width: calc(100% - 32px);
+    max-width: none;
   }
+
+  .common-title {
+    font-size: 38px;
+  }
+
+
+  /* HERO */
 
   .main-content {
     padding-top: 70px;
@@ -491,30 +484,42 @@ body {
     padding: 15px;
     font-size: 15px;
   }
-}
 
-@media (max-width: 600px) {
+  /* PRODUCTS */
+
   .products .container {
-    width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+    width: calc(100% - 32px);
+    padding: 0;
     box-sizing: border-box;
   }
 
   .products-items {
     grid-template-columns: 1fr;
     width: 100%;
-    gap: 80px;
+    gap: 50px;
   }
 
   .product-item {
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .product-item-image {
+    width: 100%;
+    height: auto;
+    text-align: center;
   }
 
   .product-item-image img {
+    position: static;
+    top: auto;
+    width: 100%;
     max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
   }
 
   .products-item-text {
@@ -525,15 +530,47 @@ body {
   .products-item-extra {
     gap: 16px;
   }
-}
 
-@media (max-width: 600px) {
+  /* LOVE */
+
+  .love-items {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .love-item {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+  }
+
+  .love-item-white {
+    width: 100%;
+    height: auto;
+    padding: 40px 28px;
+  }
+
+  .love-item-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .love-item-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* ORDER */
+
   .order {
     padding-bottom: 60px;
   }
 
   .order .container {
     width: calc(100% - 32px);
+    max-width: none;
     margin: 0 auto;
   }
 
@@ -545,27 +582,22 @@ body {
   .order-block {
     width: 100%;
     margin-top: 50px;
-
     display: flex;
     flex-direction: column;
-
     overflow: hidden;
   }
 
   .order-form {
     width: 100%;
     max-width: none;
-
     margin-left: 0;
-
     padding: 32px 20px;
-
     box-sizing: border-box;
   }
 
   .order-form-text {
     width: 100%;
-
+    max-width: 100%;
     font-size: 16px;
     line-height: 130%;
   }
@@ -576,37 +608,68 @@ body {
 
   .order-form-inputs input {
     width: 100%;
+    max-width: 100%;
     height: 58px;
-
     padding: 18px 20px;
-
     font-size: 16px;
+    box-sizing: border-box;
   }
 
   .order-form-inputs .button.violet-button {
     width: 100%;
+    max-width: 100%;
     height: 58px;
   }
 
   .order-block-image {
     width: 100%;
     height: auto;
-
     margin-left: 0;
-
     text-align: right;
   }
 
   .order-image {
     width: 85%;
+    max-width: 100%;
     height: auto;
-
-    top: 0;
-
     position: relative;
+    top: 0;
   }
 
   .order-bg-image {
     display: none;
   }
+
+  /* CURRENCY */
+
+  .currency {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+/* =========================
+   DECORATIVE LINES
+   НЕ ТРОГАТЬ — ПОСЛЕДНИЕ
+========================= */
+
+.line1 {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: calc(100% - 960px);
+}
+
+.line2 {
+  position: absolute;
+  z-index: -1;
+  top: -40px;
+  left: 0;
+}
+
+.line3 {
+  position: absolute;
+  z-index: -1;
+  top: -920px;
+  left: 0;
 }
