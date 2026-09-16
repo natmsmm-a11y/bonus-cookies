@@ -1,9 +1,14 @@
 * {
-  margin: 0; /*обнулили внутренние отступы*/
-  padding: 0; /*обнулили внешние отступы*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/*подключили шрифты*/
+
+/* =========================
+   FONTS
+========================= */
+
 @font-face {
   font-family: "Steppe-Book";
   src: url("../fonts/Steppe-Book.ttf");
@@ -14,31 +19,62 @@
   src: url("../fonts/Steppe-ExtraBold.ttf");
 }
 
-/*sans-serif - указывается на случай, если шрифт будет не доступен,
-тогда система сама подберет альтернативу*/
+
+/* =========================
+   GENERAL
+========================= */
+
 body {
   background-color: #5243f4;
   font-family: "Steppe-Book", sans-serif;
   color: white;
 }
 
-.container {
-  max-width: 1200px; /*ширина страницы*/
-  margin: 0 auto; /*выравнивание по центру*/
+img {
+  max-width: 100%;
 }
+
+.container {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+.common-title {
+  font-family: "Steppe-ExtraBold", sans-serif;
+  font-size: 60px;
+  line-height: 100%;
+  text-align: center;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
 
 .button {
   background-color: white;
   border-radius: 60px;
+
   width: 178px;
   height: 58px;
-  box-sizing: border-box; /*задать внутренние размеры*/
+
   padding: 18px;
-  text-align: center; /*разместить запись по центру*/
+
+  box-sizing: border-box;
+
+  text-align: center;
   font-size: 18px;
+
   color: #5243f4;
+
   border: 0;
-  outline: none; /*чтобы не появлялся фокус от браузера*/
+  outline: none;
+
   cursor: pointer;
 }
 
@@ -55,33 +91,35 @@ body {
   background-color: #3b2cd8;
 }
 
-.common-title {
-  font-family: "Steppe-ExtraBold", sans-serif;
-  font-size: 60px;
-  line-height: 100%;
-  text-align: center;
-}
 
-.main {
-  position: relative;
-  overflow: hidden;
-}
+/* =========================
+   CURRENCY
+========================= */
 
 .currency {
   position: fixed;
+
   right: 50px;
   bottom: 50px;
+
   border: 1px solid white;
+
   padding: 5px 10px;
-  height: 25px;
-  min-width: 25px;
+
+  min-width: 37px;
+  height: 37px;
+
   border-radius: 50px;
+
   text-align: center;
+  line-height: 25px;
+
   cursor: pointer;
-  line-height: 28px;
-  z-index: 1;
+
+  z-index: 10;
+
   user-select: none;
-  transform: scale(1);
+
   animation: pulse 2s infinite;
 }
 
@@ -90,144 +128,195 @@ body {
     transform: scale(0.9);
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
   }
+
   70% {
     transform: scale(1);
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
   }
+
   100% {
     transform: scale(0.9);
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
 
+
+/* =========================
+   HEADER
+========================= */
+
 .header {
-  padding: 40px 0; /*отступ по краям по 40, сверху и снизу - 0*/
+  padding: 40px 0;
 }
 
-/*будет применяться к контейнеру который находится в header*/
 .header .container {
-  display: flex; /*отображение в одну строку*/
-  align-items: center; /*выравнивание по вертикали по центру*/
+  display: flex;
+  align-items: center;
 }
 
-.logo .img {
-  vertical-align: bottom; /*картинка правильно отображается и располагается ровно по центру блока*/
+.logo img {
+  vertical-align: bottom;
 }
 
 .menu {
-  margin-left: 250px; /*отступ слева*/
+  margin-left: 250px;
 }
 
 .menu-list {
-  list-style: none; /*убрать точки возле цифр*/
-  display: flex; /*выравнивание в строку в гибком контейрнере*/
-  gap: 50px; /*отступ между пунктами меню*/
+  list-style: none;
+
+  display: flex;
+  gap: 50px;
 }
 
 .menu-item a {
-  font-size: 16px; /*размер шрифта*/
-  line-height: 130%; /*высота строки*/
-  text-decoration: none; /*убрать подчеркивание у ссылок*/
-  cursor: pointer; /*при наведении кликающая рука*/
+  font-size: 16px;
+  line-height: 130%;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
   color: white;
 }
 
-/*прописываем какие стили будут применяться при наведении*/
 .menu-item a:hover {
-  border-bottom: 2px solid white; /*белая полоска снизу при наведении*/
+  border-bottom: 2px solid white;
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .main-content {
-  padding-top: 161px; /*отступ сверху*/
-  padding-bottom: 200px; /*отступ снизу*/
+  padding-top: 161px;
+  padding-bottom: 200px;
+}
+
+.main-content .container {
+  position: relative;
 }
 
 .main-info {
-  max-width: 811px; /*максимальная ширина, после которой будет перенос*/
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 811px;
 }
 
 .main-title {
   font-family: "Steppe-ExtraBold", sans-serif;
+
   font-size: 90px;
   line-height: 100%;
+
   margin-bottom: 20px;
 }
 
 .main-text {
   max-width: 690px;
+
   font-size: 18px;
   line-height: 130%;
+
   margin-bottom: 40px;
 }
 
 .main-image {
-  position: absolute; /*указываем позиционирование, чтобы вырвать его из сетки и сделать висящим*/
-  top: 0; /*отступ сверху 0*/
-  right: 0; /*отступ справа 0, чтобы привязался к правому краю*/
-  z-index: -1; /*перемещаем на задний план*/
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  z-index: -1;
 }
 
-/*После этой строки добавьте код из 2-ой части бонуса*/
+
+/* =========================
+   PRODUCTS
+========================= */
 
 .products {
-  padding: 100px 0; /*0 это отступ справа и слева*/
+  padding: 100px 0;
+
   position: relative;
 }
 
 .products-items {
-  display: grid; /* сетка из 6 элементов для карточек товара*/
-  grid-template-columns: repeat(
-    3,
-    384px
-  ); /* используем 3 колонки по 384px каждую*/
-  gap: 90px 24px; /*90 отступ сверху и снизу, 24 - слева и справа*/
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 90px 24px;
+
   margin-top: 110px;
 }
 
 .product-item {
   background-color: white;
-  color: #5d3427; /* цвет текста */
+
+  color: #5d3427;
+
+  min-width: 0;
 }
 
 .product-item-image {
   height: 202px;
+
   text-align: center;
 }
 
 .product-item-image img {
   height: 272px;
-  top: -70px; /* поднимаем картинку вверх на 70 px */
-  position: relative; /* чтобы работал выше указанный код */
-  max-width: 100%; /* макс ширина для картинки */
+
+  position: relative;
+
+  top: -70px;
+
+  max-width: 100%;
+
+  object-fit: contain;
 }
 
 .products-item-details {
-  padding: 24px; /* внутренний отступ */
+  padding: 24px;
 }
 
 .products-item-title {
   font-family: "Steppe-ExtraBold", sans-serif;
+
   font-size: 18px;
+
   margin-bottom: 20px;
 }
 
 .products-item-text {
-  height: 110px;
+  min-height: 110px;
+
   font-size: 14px;
   line-height: 120%;
+
   margin-bottom: 20px;
 }
 
 .products-item-extra {
-  display: flex; /* делаем гибкий контейнер, чтобы текст и кнопка были в одной строке */
-  justify-content: space-between; /* чтобы элементы привязались к разным сторонам и между ними был какой то отступ */
-  align-items: center; /* выровнять по вертикали */
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
 }
 
 .products-item-price {
   font-family: "Steppe-ExtraBold", sans-serif;
+
   color: #5243f4;
+
   font-size: 24px;
+
   margin-bottom: 10px;
 }
 
@@ -235,44 +324,82 @@ body {
   font-size: 12px;
 }
 
-/*После этой строки добавьте код из 3-ей части бонуса*/
+
+/* =========================
+   LOVE
+========================= */
 
 .love {
-  padding: 64px 0 150px 0; /* внутренний отступ (сверху справа снизу слева) */
+  padding: 64px 0 150px;
 }
 
 .love-items {
   margin-top: 40px;
+
   display: flex;
+
   gap: 20px;
+
+  align-items: stretch;
 }
 
 .love-item {
-  width: 590px;
-  height: 453px;
+  width: calc((100% - 20px) / 2);
+
+  min-height: 453px;
+
+  height: auto;
 }
 
 .love-item-white {
   background-color: white;
+
   padding: 110px 80px;
-  box-sizing: border-box; /* чтобы размеры включали отступы padding */
+
+  box-sizing: border-box;
+
   color: #5d3427;
+
+  height: auto;
 }
 
 .love-item-title {
   font-family: "Steppe-ExtraBold", sans-serif;
+
   font-size: 24px;
   line-height: 110%;
+
   margin-bottom: 20px;
 }
 
 .love-item-text {
   font-size: 18px;
   line-height: 130%;
+
+  overflow-wrap: break-word;
 }
+
+.love-item-image {
+  overflow: hidden;
+}
+
+.love-item-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================
+   ORDER
+========================= */
 
 .order {
   padding-bottom: 102px;
+
   position: relative;
 }
 
@@ -282,20 +409,28 @@ body {
 
 .order-block {
   margin-top: 103px;
-  background-color: rgb(255 255 255 / 30%); /* делаем прозрачный фон */
+
+  background-color: rgb(255 255 255 / 30%);
+
   backdrop-filter: blur(50px);
+
   display: flex;
 }
 
 .order-form {
   margin-left: 200px;
-  max-width: 387px; /* задаем максимальную ширину, чтобы блок не растягивался */
-  padding: 40px 0 44px 0;
+
+  width: 100%;
+  max-width: 387px;
+
+  padding: 40px 0 44px;
+
   box-sizing: border-box;
 }
 
 .order-form-text {
   font-family: "Steppe-ExtraBold", sans-serif;
+
   font-size: 18px;
   line-height: 130%;
 }
@@ -303,81 +438,533 @@ body {
 .order-form-inputs {
   display: flex;
   flex-direction: column;
+
   margin-top: 20px;
 }
 
 .order-form-inputs input {
   border: 1px solid white;
+
   border-radius: 60px;
+
   margin-bottom: 16px;
+
   padding: 24px 22px;
+
   font-size: 18px;
-  width: 385px;
+
+  width: 100%;
   height: 68px;
-  background: transparent; /* прозрачный фон */
+
+  background: transparent;
+
   box-sizing: border-box;
-  outline: none; /* чтобы браузер не добавлял подсветку, когда мы работаем с полем */
+
+  outline: none;
+
   color: white;
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, 0.4); /* указали непрозрачность */
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .order-form-inputs .button.violet-button {
-  width: 387px;
+  width: 100%;
   height: 71px;
 }
 
 .order-block-image {
   height: 501px;
+
   margin-left: 109px;
 }
 
 .order-image {
   height: 559px;
-  top: -58px;
+
   position: relative;
+
+  top: -58px;
+
+  max-width: none;
 }
 
 .order-bg-image {
   position: absolute;
+
   top: 0;
   right: calc(100% - 810px);
+
   z-index: -1;
 }
 
-/*После этой строки добавьте код из 4-ой части бонуса*/
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer {
-  padding: 126px 0 50px 0;
+  padding: 126px 0 50px;
+
   text-align: center;
 }
 
 .rights {
   margin-top: 14px;
+
   font-size: 18px;
   line-height: 130%;
 }
 
-/*!!! эти строки НЕ ТРОГАТЬ, они всегда должны быть самыми последними*/
+
+/* =========================
+   DECORATIVE LINES
+========================= */
+
 .line1 {
   position: absolute;
+
   z-index: -1;
+
   top: 0;
   left: calc(100% - 960px);
 }
 
 .line2 {
   position: absolute;
+
   z-index: -1;
+
   top: -40px;
   left: 0;
 }
 
 .line3 {
   position: absolute;
+
   z-index: -1;
+
   top: -920px;
   left: 0;
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 1000px) {
+
+  .menu {
+    margin-left: auto;
+  }
+
+  .menu-list {
+    gap: 25px;
+  }
+
+  .main-title {
+    font-size: 70px;
+  }
+
+  .products-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .love-item-white {
+    padding: 60px 45px;
+  }
+
+  .order-form {
+    margin-left: 50px;
+  }
+
+  .order-block-image {
+    margin-left: 30px;
+  }
+
+  .order-image {
+    max-width: 420px;
+
+    height: auto;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  .container {
+    width: calc(100% - 32px);
+  }
+
+
+  /* HEADER */
+
+  .header {
+    padding: 24px 0;
+  }
+
+  .header .container {
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .menu {
+    margin-left: 0;
+
+    width: 100%;
+  }
+
+  .menu-list {
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px 20px;
+  }
+
+  .menu-item a {
+    font-size: 14px;
+  }
+
+
+  /* HERO */
+
+  .main-content {
+    padding-top: 80px;
+    padding-bottom: 120px;
+  }
+
+  .main-info {
+    max-width: 100%;
+  }
+
+  .main-title {
+    font-size: clamp(42px, 12vw, 64px);
+
+    max-width: 90%;
+  }
+
+  .main-text {
+    max-width: 70%;
+
+    font-size: 16px;
+  }
+
+  .main-image {
+    width: 78vw;
+
+    top: 40px;
+    right: -35vw;
+  }
+
+
+  /* TITLES */
+
+  .common-title {
+    font-size: clamp(38px, 9vw, 52px);
+  }
+
+
+  /* PRODUCTS */
+
+  .products {
+    padding: 70px 0;
+  }
+
+  .products-items {
+    grid-template-columns: 1fr;
+
+    gap: 80px;
+
+    margin-top: 90px;
+  }
+
+  .product-item {
+    width: 100%;
+  }
+
+  .product-item-image {
+    height: 190px;
+  }
+
+  .product-item-image img {
+    height: 250px;
+  }
+
+  .products-item-text {
+    min-height: auto;
+  }
+
+
+  /* LOVE */
+
+  .love {
+    padding: 60px 0 90px;
+  }
+
+  .love-items {
+    flex-direction: column;
+
+    gap: 20px;
+
+    align-items: stretch;
+  }
+
+  .love-item {
+    width: 100%;
+
+    min-height: auto;
+
+    height: auto;
+  }
+
+  .love-item-white {
+    width: 100%;
+
+    height: auto;
+
+    padding: 40px 24px;
+  }
+
+  .love-item-title {
+    font-size: 20px;
+    line-height: 120%;
+
+    margin-bottom: 16px;
+  }
+
+  .love-item-text {
+    font-size: 16px;
+    line-height: 140%;
+
+    overflow-wrap: break-word;
+  }
+
+  .love-item-image {
+    width: 100%;
+
+    height: auto;
+  }
+
+  .love-item-image img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+  }
+
+
+  /* ORDER */
+
+  .order {
+    padding-bottom: 70px;
+  }
+
+  .order-block {
+    margin-top: 60px;
+
+    flex-direction: column;
+
+    overflow: hidden;
+  }
+
+  .order-form {
+    margin-left: 0;
+
+    width: 100%;
+    max-width: none;
+
+    padding: 35px 25px;
+  }
+
+  .order-form-inputs input {
+    width: 100%;
+  }
+
+  .order-form-inputs .button.violet-button {
+    width: 100%;
+  }
+
+  .order-block-image {
+    height: auto;
+
+    margin-left: 0;
+
+    text-align: right;
+  }
+
+  .order-image {
+    position: relative;
+
+    top: 0;
+
+    width: 80%;
+    height: auto;
+
+    max-width: 100%;
+  }
+
+  .order-bg-image {
+    display: none;
+  }
+
+
+  /* CURRENCY */
+
+  .currency {
+    right: 15px;
+    bottom: 15px;
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+    padding: 80px 0 40px;
+  }
+
+
+  /* DECOR */
+
+  .line1,
+  .line2,
+  .line3 {
+    max-width: 150%;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+  .container {
+    width: calc(100% - 24px);
+  }
+
+
+  /* HEADER */
+
+  .header .logo img {
+    max-width: 120px;
+  }
+
+  .menu-list {
+    gap: 10px 14px;
+  }
+
+  .menu-item a {
+    font-size: 12px;
+  }
+
+
+  /* HERO */
+
+  .main-content {
+    padding-top: 55px;
+    padding-bottom: 100px;
+  }
+
+  .main-title {
+    font-size: 44px;
+
+    max-width: 95%;
+  }
+
+  .main-text {
+    max-width: 72%;
+
+    font-size: 14px;
+  }
+
+  .main-image {
+    width: 85vw;
+
+    right: -43vw;
+  }
+
+
+  /* BUTTONS */
+
+  .button {
+    width: 150px;
+    height: 52px;
+
+    padding: 15px;
+
+    font-size: 15px;
+  }
+
+
+  /* TITLES */
+
+  .common-title {
+    font-size: 38px;
+  }
+
+
+  /* PRODUCTS */
+
+  .products-item-extra {
+    align-items: flex-end;
+  }
+
+  .products-item-extra .button {
+    width: 140px;
+  }
+
+
+  /* LOVE */
+
+  .love-item-white {
+    padding: 32px 22px;
+  }
+
+  .love-item-title {
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+  .love-item-text {
+    font-size: 15px;
+    line-height: 145%;
+  }
+
+
+  /* ORDER */
+
+  .order-form {
+    padding: 30px 20px;
+  }
+
+  .order-form-text {
+    font-size: 16px;
+  }
+
+  .order-form-inputs input {
+    height: 60px;
+
+    padding: 18px 20px;
+
+    font-size: 16px;
+  }
+
+  .order-form-inputs .button.violet-button {
+    height: 60px;
+  }
+
+  .order-image {
+    width: 95%;
+  }
 }
